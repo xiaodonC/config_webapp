@@ -1,0 +1,102 @@
+html,body,h1,h2,h3,h4,h5,h6,div,dl,dt,dd,ul,ol,li,p,blockquote,pre,hr,figure,table,caption,th,td,form,fieldset,legend,input,button,textarea,menu{margin:0;padding:0;}
+header,footer,section,article,aside,nav,hgroup,address,figure,figcaption,menu,details{display:block;}
+table{border-collapse:collapse;border-spacing:0;}
+caption,th{text-align:left;font-weight:normal;}
+html,body,fieldset,img,iframe,abbr{border:0;}
+i,cite,em,var,address,dfn{font-style:normal;}
+[hidefocus],summary{outline:0;}
+li{list-style:none;}
+h1,h2,h3,h4,h5,h6,small{font-size:100%;}
+sup,sub{font-size:83%;}
+pre,code,kbd,samp{font-family:inherit;}
+q:before,q:after{content:none;}
+textarea{overflow:auto;resize:none;}
+label,summary{cursor:default;}
+a,button{cursor:pointer;}
+h1,h2,h3,h4,h5,h6,em,strong,b{font-weight:bold;}
+del,ins,u,s,a,a:hover{text-decoration:none;}
+body,textarea,input,button,select,keygen,legend{font:12px/1.14 arial,\5b8b\4f53;color:#333;outline:0;}
+body{background:#fff;}
+a,a:hover{color:#333;}
+     
+body{
+    background-color: #562F72;
+    margin: 0;
+    padding: 0;
+}
+.header{
+    width: 1200px;
+    height: 99px;
+    border-bottom: 1px solid white;
+    margin: 0 auto;
+}
+h1{
+    font: 50px "Lucida Grande", Helvetica, Arial, sans-serif;
+    color: white;
+    padding-top: 50px;
+}
+.login{
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+}
+h2{
+    font: 30px "Lucida Grande", Helvetica, Arial, sans-serif;
+    color: white;
+    padding-top: 100px;
+
+}
+h3{
+    font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
+    color: white;
+    padding-top: 20px;
+}
+#userid{
+    display: block;
+    margin-top: 20px;
+    height: 20px;
+}
+#userpw{
+    display: block;
+    margin-top: 20px;
+    height: 20px;
+}
+.submitpw{
+    width:400px;
+    height:40px;
+    margin: 0 auto;
+}
+#signinbtn{
+    width: 100px;
+    height: 30px;
+    border-radius: 16px;
+    margin-top: 40px;
+    float: left;
+}
+#forgetpw{
+    width: 140px;
+    height: 30px;
+    margin-top: 55px;
+    font-family: Arial,sans-serif;
+    color: white;
+    float: right;
+    text-decoration: none;
+}
+.api-link{
+    width: 430px;
+    height: 50px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+.api-link ul{
+    list-style: none;
+}
+.api-link li{
+    float: left;
+}
+.api-link a{
+    font-family: Arial,sans-serif;
+    line-height: 50px;
+    text-decoration: none;
+    color: white;
+}
