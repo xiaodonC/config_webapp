@@ -12,8 +12,13 @@
         <h2>IBM</h2>
         <h3>CONFIG COGNITIVE APPLICATION</h3>
         <input type="text" id="userid" placeholder="Intranet ID" size="55"/>
-        <input type="text" id="userpw" placeholder="Password" size="55" />
+        <input type="password" id="userpw" placeholder="Password" size="55" />
         <div class="submitpw">
+
+         <!--  <div class="alert alert-warning" id="popup_id_tip" style="display:none;"><button type="button" class="close" data-dismiss="alert">×</button><strong>Please Enter OATS Number Or User ID</strong></div>
+          <div class="alert alert-warning" id="popup_password_tip" style="display:none;"><button type="button" class="close" data-dismiss="alert">×</button><strong>Please Enter Password</strong></div>
+          <div class="alert alert-danger" id="popup_login_error" style="display:none;"><button type="button" class="close" data-dismiss="alert">×</button><strong>Incorrect User Or Password</strong></div> -->
+
           <button id="signinbtn">Sign In</button>
           <a href="https://w3idprofile.sso.ibm.com/password/createpwd_lookup_otp.wss" id="forgetpw" target="_blank">Forget Password?</a>
         </div>
@@ -26,5 +31,46 @@
         <li><a href="http://www.ibm.com/watson/developercloud/retrieve-rank.html" target="_blank">&nbsp;&nbsp;Retrieve and Rank</a></li>
       </ul>
     </div>
+  <!-- <script src="/javascripts/app.v2.js"></script>  -->
   </body>
+<!-- <script>
+$(document).ready(function(){
+
+  $('#signinbtn').click(function(){
+    var from = location.href.split('?')[1];
+    var username = $('#userid').val();
+    var password = $('#userpw').val();
+
+    if ($.trim(username) == '') {
+      $('#popup_id_tip').show();
+      return false;
+    }
+
+    if ($.trim(password) == '') {
+      $('#popup_password_tip').show();
+      return false;
+    }
+    
+    $.post('/login', {username : username,password : password}, function(d) {
+      if (d.code == 0) {
+      if(d.redirect!= null){
+        window.location.href = d.redirect;
+      }
+      }else {
+          $('#popup_login_error').show();
+      }
+      $('#popup_id_tip').hide();
+      $('#popup_password_tip').hide();
+    });
+    return false;
+
+  });
+
+  $(".panel-body input").on('input propertychange',function(){
+        $('#popup_id_tip').hide();
+      $('#popup_password_tip').hide();
+      $('#popup_login_error').hide();
+    });
+});         
+</script> -->
 </html>
