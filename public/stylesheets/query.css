@@ -22,6 +22,9 @@ body{background:#fff;}
     width: 100%;
     height: 100px;
     background-color: #562F72;
+    position: absolute;
+    left:0;
+    top:0;
 }
 h1{
     font: 32px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -33,12 +36,13 @@ h1{
     width: 200px;
     height: 700px;
     border-right: 1px solid #E4E3E2;
+    position: absolute;
+    left:0;
+    top:100px;
 }
 .side-nav ul{
     list-style: none;
-}
-#first-tap{
-    padding-top: 30px;
+    padding-top: 10px;
 }
 .side-nav li{
     height: 60px;
@@ -54,4 +58,14 @@ h1{
 .side-nav a:hover{
     color:purple;
     border-bottom: 1px solid #E4E3E2;
+}
+
+#main{
+    position:absolute;
+    left:200px;
+    top:100px;
+    bottom:0px;
+    right:0px;
+    z-index: 2;
+    overflow:hidden;
 }
