@@ -14,11 +14,6 @@
         <input type="text" id="userid" placeholder="Intranet ID" size="55"/>
         <input type="password" id="userpw" placeholder="Password" size="55" />
         <div class="submitpw">
-
-         <!--  <div class="alert alert-warning" id="popup_id_tip" style="display:none;"><button type="button" class="close" data-dismiss="alert">×</button><strong>Please Enter OATS Number Or User ID</strong></div>
-          <div class="alert alert-warning" id="popup_password_tip" style="display:none;"><button type="button" class="close" data-dismiss="alert">×</button><strong>Please Enter Password</strong></div>
-          <div class="alert alert-danger" id="popup_login_error" style="display:none;"><button type="button" class="close" data-dismiss="alert">×</button><strong>Incorrect User Or Password</strong></div> -->
-
           <button id="signinbtn">Sign In</button>
           <a href="https://w3idprofile.sso.ibm.com/password/createpwd_lookup_otp.wss" id="forgetpw" target="_blank">Forget Password?</a>
         </div>
@@ -37,18 +32,15 @@
 $(document).ready(function(){
 
   $('#signinbtn').click(function(){
-    // var from = location.href.split('?')[1];
     var username = $('#userid').val();
     var password = $('#userpw').val();
 
     if ($.trim(username) == '') {
-      // $('#popup_id_tip').show();
       alert("Please Enter Intranet ID");
       return false;
     }
 
     if ($.trim(password) == '') {
-      // $('#popup_password_tip').show();
       alert("Please Enter Password");
       return false;
     }
@@ -68,11 +60,6 @@ $(document).ready(function(){
 
   });
 
-  $(".panel-body input").on('input propertychange',function(){
-        $('#popup_id_tip').hide();
-      $('#popup_password_tip').hide();
-      $('#popup_login_error').hide();
-    });
 });         
 </script>
 </html>

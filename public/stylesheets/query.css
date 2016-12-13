@@ -31,6 +31,15 @@ h1{
     color: white;
     line-height: 100px;
     padding-left: 40px;
+    float: left;
+}
+img{
+    width: 80px;
+    height: 80px;
+    margin-right: 400px;
+    margin-top: 10px;
+    float: right;
+    border-radius: 50%;
 }
 .side-nav{
     width: 200px;

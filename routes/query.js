@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
+var bluepages = require('bluepages');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('query', { title: 'Config Cognitive Application' });
+    res.render('query', { title: 'Config Cognitive Application' });
 });
 
 router.get('/mfc', function(req, res, next) {
@@ -21,5 +22,6 @@ router.get('/bi', function(req, res, next) {
 router.get('/watson', function(req, res, next) {
   res.render('query/watson', { title: 'Watson Rebot' });
 });
+
 
 module.exports = router;
