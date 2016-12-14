@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var bluepages = require('bluepages');
+var session = require('express-session');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -17,12 +18,13 @@ router.post('/', function(req, res, next) {
 
   bluepages.authenticate(intranetId, password, function(err,verified){
     if(err) console.log(err);
-    else if(verified || req.body.username===user.username && req.body.password===user.password){
+    if(verified || req.body.username===user.username && req.body.password===user.password){
         res.send({
         code : 0,
         redirect : '/query'
         });
       }else{
+        // req.session.error='用户名或密码不正确';
         res.send({
         code : 1,
         redirect : '/login'
@@ -33,7 +35,10 @@ router.post('/', function(req, res, next) {
   bluepages.getImageByIntranetId(intranetId,function(err,imageURL){
     if(err) console.log(err);
     else {
-        console.log(imageURL); // URL for the user's image 
+        req.session=imageURL;
+        res.locals.imageurl = imageURL;
+        console.log('login.js------------'+req.session);
+        // console.log(imageURL); // URL for the user's image 
         }
     });
 });

@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
 
 var index = require('./routes/index');
 var login = require('./routes/login');
@@ -28,6 +29,12 @@ app.use('/', login);
 app.use('/login', login);
 app.use('/query', query);
 app.use('/index', index);
+
+
+app.use(session({
+  secret: 'recommand 128 bytes random string', // 建议使用 128 个字符的随机字符串
+  cookie: { maxAge: 60 * 1000 }
+}));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
