@@ -5,7 +5,7 @@ var session = require('express-session');
 /* GET home page. */
 router.get('/', function(req, res, next) {
     res.render('query', { title: 'Config Cognitive Application', imageURL: 'http://faces.tap.ibm.com:10000/image/A11505672.jpg'});
-    console.log('query.js-----------'+res.locals.imageurl);
+    console.log('query.js-----------'+req.session);
 });
 
 router.get('/mfc', function(req, res, next) {

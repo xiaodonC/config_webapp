@@ -16,7 +16,7 @@ router.post('/', function(req, res, next) {
        password : 'admin123'
   }
 
-  bluepages.authenticate(intranetId, password, function(err,verified){
+    bluepages.authenticate(intranetId, password, function(err,verified){
     if(err) console.log(err);
     if(verified || req.body.username===user.username && req.body.password===user.password){
         res.send({
@@ -24,7 +24,6 @@ router.post('/', function(req, res, next) {
         redirect : '/query'
         });
       }else{
-        // req.session.error='用户名或密码不正确';
         res.send({
         code : 1,
         redirect : '/login'
@@ -36,7 +35,6 @@ router.post('/', function(req, res, next) {
     if(err) console.log(err);
     else {
         req.session=imageURL;
-        res.locals.imageurl = imageURL;
         console.log('login.js------------'+req.session);
         // console.log(imageURL); // URL for the user's image 
         }
