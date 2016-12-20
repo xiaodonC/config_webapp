@@ -4,8 +4,7 @@ var bluepages = require('bluepages');
 var session = require('express-session');
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('query', { title: 'Config Cognitive Application', imageURL: 'http://faces.tap.ibm.com:10000/image/A11505672.jpg'});
-    console.log('query.js-----------'+req.session);
+    res.render('query', { title: 'Config Cognitive Application', imageURL: req.session.imageURL});
 });
 
 router.get('/mfc', function(req, res, next) {

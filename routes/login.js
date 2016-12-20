@@ -34,9 +34,7 @@ router.post('/', function(req, res, next) {
   bluepages.getImageByIntranetId(intranetId,function(err,imageURL){
     if(err) console.log(err);
     else {
-        req.session=imageURL;
-        console.log('login.js------------'+req.session);
-        // console.log(imageURL); // URL for the user's image 
+        req.session.imageURL=imageURL;
         }
     });
 });
