@@ -6,6 +6,26 @@
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <div id='sova_query'>
+        <input type="text" id='sova_input'/>
+        <button id='sova_btn'>query</button>
+        <textarea name="answer" id="answer" cols="30" rows="10"></textarea>
+    </div>
+  <script src="/javascripts/jquery.min.js"></script>
   </body>
+
+  <script>
+    $(document).ready(function() {
+        $('#sova_btn').click(function() {
+            var notetext = $('#sova_input').val();
+            $.post('/sova/rank',{text: notetext}, datashow);
+        });
+
+        function datashow(data){
+            $('#answer').show();
+            var result = JSON.stringify(data,null,2);
+            $('#answer').html(result);
+        }
+    });
+  </script>
 </html>
