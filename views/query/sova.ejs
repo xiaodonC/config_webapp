@@ -9,7 +9,12 @@
     <div id='sova_query'>
         <input type="text" id='sova_input'/>
         <button id='sova_btn'>query</button>
-        <textarea name="answer" id="answer" cols="30" rows="10"></textarea>
+        
+        <div id="result" class="queryDiv">
+        
+        </div>
+        
+        
     </div>
   <script src="/javascripts/jquery.min.js"></script>
   </body>
@@ -22,10 +27,22 @@
         });
 
         function datashow(data){
-            $('#answer').show();
-            var result = JSON.stringify(data,null,2);
-            $('#answer').html(result);
+            $('#result').html("");
+            var i, j,
+                str='';
+            for(i=0; i<4; i++){
+                j = i+1;
+                str += '<p>'+'Anwser'+'&nbsp'+'&nbsp'+j+'<br/>'+data[i].body+'</p>';
+            }
+            $('#result').append(str);
         }
+        $("body").delegate('.queryDiv p', 'click', function() {
+            if($(this).hasClass('open')){
+                $(this).removeClass('open');
+            }else{
+                $(this).addClass('open');
+            }
+        });
     });
   </script>
 </html>

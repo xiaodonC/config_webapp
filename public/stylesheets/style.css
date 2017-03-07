@@ -18,3 +18,17 @@ a {
     height: 30px;
     background-color: gray;
 }
+.queryDiv{
+    width: 80%;
+}
+.queryDiv p{
+    height: 58px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    padding: 8px 0;
+    margin-bottom: 5px; 
+    transition:all .3s;
+}
+.queryDiv p.open{
+    height: auto;
+}
