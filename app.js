@@ -54,32 +54,100 @@ var conversation = new Conversation({
   version: 'v1'
 });
 
-var retrieve_and_rank = watson.retrieve_and_rank({
-  username: '2519c67c-f8fa-4b70-8835-b9ed535f30c7',
-  password: 'eAFAFmWeQbXm',
+var retrieve_and_rank_sova = watson.retrieve_and_rank({
+  // xd's id
+  // username: '2519c67c-f8fa-4b70-8835-b9ed535f30c7',
+  // password: 'eAFAFmWeQbXm',
+  // summer's id
+  username: 'a147a02d-b842-46af-b130-c7e2fe282394',
+  password: 'JXaqJZETVzmM',
+  // alex's id
+  // username: 'f78d1045-9afe-4022-9f06-2b29f52ec783',
+  // password: '6D6MzG1MsKZm',
+  version: 'v1'
+});
+
+var retrieve_and_rank_newc = watson.retrieve_and_rank({
+  // xd's id
+  // username: '2519c67c-f8fa-4b70-8835-b9ed535f30c7',
+  // password: 'eAFAFmWeQbXm',
+  // summer's id
+  // username: 'a147a02d-b842-46af-b130-c7e2fe282394',
+  // password: 'JXaqJZETVzmM',
+  // alex's id
+  username: 'f78d1045-9afe-4022-9f06-2b29f52ec783',
+  password: '6D6MzG1MsKZm',
   version: 'v1'
 });
 
 app.post('/sova/rank', function(req, res, next) {
   var params = {
-      cluster_id: 'sc6c171d6a_f063_4647_8e22_85cf541d6471',
-      collection_name: 'first-try-connection'
+      // xd's id
+      // cluster_id: 'sc6c171d6a_f063_4647_8e22_85cf541d6471',
+      // collection_name: 'first-try-connection'
+      // summer's id
+      cluster_id: 'sc338e991b_6e21_49e3_b37c_d16b59720b4a',
+      collection_name: 'CCTSOVA_Question_pool_1'
+      // alex's id
+      // cluster_id: 'sc4b3430cb_d93b_4f16_955a_7da5c16885d1',
+      // collection_name: 'car_collection'
     };
-    solrClient = retrieve_and_rank.createSolrClient(params);
+    solrClient = retrieve_and_rank_sova.createSolrClient(params);
 
-    var ranker_id = '1eec7cx29-rank-397';
+    // xd's id
+    // var ranker_id = '1eec7cx29-rank-397';
+    // summer's id
+    var ranker_id = '1eec74x28-rank-3374';
+    // alex's id
+    // var ranker_id = '1eec7cx29-rank-3411';
     var question  = req.body.text;
-    var query     = qs.stringify({q: question, ranker_id: ranker_id, fl: 'id,body'});
+    var query     = qs.stringify({q: question, ranker_id: ranker_id, fl: 'id,contentHtml'});
 
     solrClient.get('fcselect', query, function(err, searchResponse) {
       if(err) {
         console.log('Error searching for documents: ' + err);
       }
         else {
-          // console.log(JSON.stringify(searchResponse.response.docs, null, 5));
+          console.log(JSON.stringify(searchResponse.response.docs, null, 5));
           return res.json(searchResponse.response.docs);
         }
     });
+
+});
+
+app.post('/newc/rank', function(req, res, next) {
+  var params = {
+      // xd's id
+      // cluster_id: 'sc6c171d6a_f063_4647_8e22_85cf541d6471',
+      // collection_name: 'first-try-connection'
+      // summer's id
+      // cluster_id: 'sc338e991b_6e21_49e3_b37c_d16b59720b4a',
+      // collection_name: 'CCTSOVA_Question_pool_1'
+      // alex's id
+      cluster_id: 'sc4b3430cb_d93b_4f16_955a_7da5c16885d1',
+      collection_name: 'car_collection'
+    };
+    solrClient = retrieve_and_rank_newc.createSolrClient(params);
+
+    // xd's id
+    // var ranker_id = '1eec7cx29-rank-397';
+    // summer's id
+    // var ranker_id = '1eec74x28-rank-3374';
+    // alex's id
+    var ranker_id = '1eec7cx29-rank-3411';
+    var question  = req.body.text;
+    var query     = qs.stringify({q: question, ranker_id: ranker_id, fl: 'id,contentHtml'});
+
+    solrClient.get('fcselect', query, function(err, searchResponse) {
+      if(err) {
+        console.log('Error searching for documents: ' + err);
+      }
+        else {
+          console.log(JSON.stringify(searchResponse.response.docs, null, 5));
+          return res.json(searchResponse.response.docs);
+        }
+    });
+
 });
 
 // Endpoint to be call from the client side

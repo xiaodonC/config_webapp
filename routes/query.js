@@ -18,8 +18,8 @@ router.get('/sova', function(req, res, next) {
   res.render('query/sova', { title: 'SOVA Sourse Analyze' });
 });
 
-router.get('/bi', function(req, res, next) {
-  res.render('query/bi', { title: 'BI Version Analyze' });
+router.get('/newc', function(req, res, next) {
+  res.render('query/newc', { title: 'NewC ET Sourse Analyze' });
 });
 
 router.get('/watson', function(req, res, next) {

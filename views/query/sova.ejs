@@ -11,7 +11,7 @@
         <button id='sova_btn'>query</button>
         
         <div id="result" class="queryDiv">
-        
+            
         </div>
         
         
@@ -32,11 +32,12 @@
                 str='';
             for(i=0; i<4; i++){
                 j = i+1;
-                str += '<p>'+'Answer'+'&nbsp'+'&nbsp'+j+'<br/>'+data[i].body+'</p>';
+                str += '<div class="queryAnswer">'+'Answer'+'&nbsp'+'&nbsp'+j+'<br/>'+data[i].contentHtml+'</div>';
             }
+            
             $('#result').append(str);
         }
-        $("body").delegate('.queryDiv p', 'click', function() {
+        $("body").delegate('.queryDiv div', 'click', function() {
             if($(this).hasClass('open')){
                 $(this).removeClass('open');
             }else{

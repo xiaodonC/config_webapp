@@ -42,7 +42,7 @@ img{
     border-radius: 50%;
 }
 .side-nav{
-    width: 200px;
+    width: 250px;
     height: 700px;
     border-right: 1px solid #E4E3E2;
     position: absolute;
@@ -71,7 +71,7 @@ img{
 
 #main{
     position:absolute;
-    left:200px;
+    left:250px;
     top:100px;
     bottom:0px;
     right:0px;
